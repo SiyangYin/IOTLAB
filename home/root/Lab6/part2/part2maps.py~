@@ -1,0 +1,20 @@
+import googlemaps
+from datetime import datetime
+import json
+
+
+gmaps = googlemaps.Client(key="AIzaSyD04cLoGwkT-HA9i2IPLotf7hnT1AuM03Y")
+now = datetime.now()
+steps = []
+
+source = (42.4834, -72.3920)
+destination = (40.3232,-71.32930)
+
+directions = gmaps.directions(source,destination,mode="driving",departure_time=now)
+
+for leg in directions[0]['legs']:
+    for step in leg['steps']:
+        print step['html_instructions']
+        print 'hi'
+
+

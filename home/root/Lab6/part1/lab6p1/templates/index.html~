@@ -1,0 +1,10 @@
+<html>
+<head>
+	<title>Lab 6 Part 1</title>
+</head>
+<body>
+	<div style="margin=auto; width: 500px;">
+		<img src="{{ images }}" width="500px"/>
+	</div>
+</body>
+</html>

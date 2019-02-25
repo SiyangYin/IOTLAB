@@ -1,0 +1,10 @@
+<html>
+<head>
+	<title>Lab 6 Part 1</title>
+</head>
+<body>
+	{% for i in images %}
+	    <img src="{{ i.image.url }}" width="500px"/>
+	{% endfor %}
+</body>
+</html>

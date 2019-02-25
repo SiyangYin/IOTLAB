@@ -1,0 +1,6 @@
+import tripupdate,vehicle,alert,mtaUpdates,aws
+
+mta = mtaUpdates.mtaUpdates()
+
+while True:
+    mta.get
