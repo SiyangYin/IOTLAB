@@ -19,11 +19,14 @@ sys.path.append('../utils')
 import tripupdate,vehicle,alert,mtaUpdates,aws
 
 
+from ml import MLModule
+from ml import predict
+
 DYNAMO_TABLE_NAME = 'mtadata'
 client = boto3.client(
     "sns",
-    aws_access_key_id="AKIAIGF773AWXFY3JKKA",
-    aws_secret_access_key="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",
+    aws_access_key_id="AKIAI2RS2GJIUUUWO57Q",
+    aws_secret_access_key="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",
     region_name="us-east-1"
 )
 topic = client.create_topic(Name="mtaSubscribers")
@@ -180,6 +183,10 @@ class mtaMethods:
         print message
         print ''
         client.publish(Message=message, TopicArn=topic_arn)
+
+        gap=(fastest_ex_trip['futureStopData']['120S']['arrivalTime'] - fastest_trip['futureStopData']['120S'][
+            'arrivalTime'])
+        predict(gap)
 
         return 0
              
